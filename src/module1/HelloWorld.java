@@ -7,6 +7,7 @@ import de.fhpotsdam.unfolding.providers.AbstractMapProvider;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
 import de.fhpotsdam.unfolding.utils.MapUtils;
+import de.fhpotsdam.unfolding.providers.EsriProvider.NatGeoWorldMap;
 
 /** HelloWorld
   * An application with two maps side-by-side zoomed in on different locations.
@@ -47,6 +48,7 @@ public class HelloWorld extends PApplet
 		
 		// Select a map provider
 		AbstractMapProvider provider = new Google.GoogleTerrainProvider();
+		AbstractMapProvider natGeoProvider = new NatGeoWorldMap();
 		// Set a zoom level
 		int zoomLevel = 10;
 		
@@ -77,7 +79,7 @@ public class HelloWorld extends PApplet
 		// TODO: Add code here that creates map2 
 		// Then you'll modify draw() below
 		
-		map2 = new UnfoldingMap(this, 450, 50, 350, 500, provider);
+		map2 = new UnfoldingMap(this, 450, 50, 350, 500, natGeoProvider);
 		
 		map2.zoomAndPanTo(zoomLevel, new Location(7.4f, 3.8f));
 		
